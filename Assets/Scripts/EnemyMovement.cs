@@ -1,6 +1,4 @@
-using System;
-using System.Collections;
-using TMPro;
+
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -17,6 +15,10 @@ public class EnemyMovement : MonoBehaviour
 
     private FilterAlphaController filterAlphaController;
 
+    private float timer = 0;
+    [SerializeField] private float changeInterval = 5f;
+
+    public Vector2 direction = Vector2.up;
 
 
     private void Start()
@@ -32,6 +34,14 @@ public class EnemyMovement : MonoBehaviour
     private void Update()
     {
         RunAway();
+
+        timer += Time.deltaTime;
+
+        if(timer > changeInterval )
+        {
+            timer = 0;
+            direction = Random.insideUnitCircle;
+        }
         
     }
 
@@ -41,24 +51,24 @@ public class EnemyMovement : MonoBehaviour
 
         if (distanceToPlayer < enemyRunAwayRange)
         {
-            MoveTowardsPlayer();
+            MoveAwayFromPaayer();
         }
         else
         {
-            IdleAnimation();
+            MoveRandomly();
         }
     }
 
-    private void MoveTowardsPlayer()
+    private void MoveAwayFromPaayer()
     {
         Vector2 direction = (transform.position - player.transform.position).normalized;
         transform.Translate(direction * enemySpeed * Time.deltaTime);
     }
 
-    private void IdleAnimation()
+    private void MoveRandomly()
     {
-        
-        // TODO 
+        transform.Translate(direction * enemySpeed * Time.deltaTime);
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

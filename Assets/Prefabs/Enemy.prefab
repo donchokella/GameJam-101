@@ -100,11 +100,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 10
-  enemySpeed: 10
+  enemySpeed: 5
   player: {fileID: 0}
   enemyRunAwayRange: 3
   bulletDamage: 5
   filter: {fileID: 0}
+  changeInterval: 1
+  direction: {x: 0, y: 1}
 --- !u!61 &7998103985287349489
 BoxCollider2D:
   m_ObjectHideFlags: 0
