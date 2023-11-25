@@ -23,5 +23,10 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    void PlayerMoveAnim()
+    {
+
+    }
+
 }
 

@@ -42,7 +42,8 @@ public class EnemyMovement : MonoBehaviour
             timer = 0;
             direction = Random.insideUnitCircle;
         }
-        
+
+        EnemyMoveAnimation(); // ???
     }
 
     private void RunAway()
@@ -87,11 +88,11 @@ public class EnemyMovement : MonoBehaviour
 
     private void GetKilled()
     {
-        //anim
+        EnemyDeathAnimation();  // ???
 
         KilledEnemy++;
 
-        filterAlphaController.IncreaseAlpha(0.1f); // Dilediðiniz artýþ miktarýný ayarlayabilirsiniz
+        filterAlphaController.IncreaseAlpha(0.1f);
 
         Destroy(gameObject);
     }
@@ -101,5 +102,15 @@ public class EnemyMovement : MonoBehaviour
     private void GetDamage()
     {
         enemyHealth -= bulletDamage;
+    }
+
+    void EnemyDeathAnimation ()
+    {
+        // ???
+    }
+
+    void EnemyMoveAnimation()
+    {
+        // ???
     }
 }
