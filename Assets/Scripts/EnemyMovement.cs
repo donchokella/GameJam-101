@@ -6,7 +6,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float enemyHealth = 10f;
     [SerializeField] private float enemySpeed = 10f;
 
-    [SerializeField] private PlayerMovement player;
+    private PlayerMovement player;
     [SerializeField] private float enemyRunAwayRange = 20;
     [SerializeField] private float bulletDamage = 5;
     [SerializeField] private GameObject filter;
@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
         player = PlayerMovement.Instance;
         if (filter == null)
         {
-            filter = GameObject.FindWithTag("Filter"); // YourFilterTag'i filter objesinin etiketi ile deðiþtirin
+            filter = GameObject.FindWithTag("Filter");
         }
         filterAlphaController = filter.GetComponent<FilterAlphaController>();
 
