@@ -8,7 +8,7 @@ public class bulletmove : MonoBehaviour
     private Camera mainCam;
     private Rigidbody2D rb;
     [SerializeField] private float force = 5f;
-    // Start is called before the first frame update
+
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
