@@ -16,6 +16,7 @@ public class EnemyMovement : MonoBehaviour
     private FilterAlphaController filterAlphaController;
 
     [SerializeField] private UiScprit cnvs;
+    [SerializeField] private GameObject cnvs2;
 
     private float timer = 0;
     [SerializeField] private float changeInterval = 5f;
@@ -27,6 +28,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Collider2D collider2D;
 
+    
     private void Start()
     {
         cnvs = FindObjectOfType<Canvas>().GetComponent<UiScprit>();
@@ -39,7 +41,6 @@ public class EnemyMovement : MonoBehaviour
             filter = GameObject.FindWithTag("Filter");
         }
         filterAlphaController = filter.GetComponent<FilterAlphaController>();
-        
     }
     private void Update()
     {

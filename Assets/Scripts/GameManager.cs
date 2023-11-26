@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    
     #region Singleton
     private static GameManager instance = null;
     public static GameManager Instance
@@ -41,4 +42,5 @@ public class GameManager : MonoBehaviour
         Debug.Log("Quitting game...");
         Application.Quit();
     }
+
 }
