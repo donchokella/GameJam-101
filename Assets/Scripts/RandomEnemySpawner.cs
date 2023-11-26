@@ -5,7 +5,7 @@ using UnityEngine;
 public class RandomEnemySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject[] enemyPrefabs;
-    [SerializeField] private int enemyCount = 100;
+    [SerializeField] private int enemyCount;
     [SerializeField] private int mapHeight;
     [SerializeField] private int mapWidth;
 

@@ -19,9 +19,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float changeInterval = 5f;
 
     public Vector2 direction = Vector2.up;
+    [SerializeField] private float filterModifier;
 
-
-    private void Start()
+    private void Awake()
     {
         player = PlayerMovement.Instance;
         if (filter == null)
@@ -92,7 +92,7 @@ public class EnemyMovement : MonoBehaviour
 
         KilledEnemy++;
 
-        filterAlphaController.IncreaseAlpha(0.1f);
+        filterAlphaController.IncreaseAlpha(filterModifier);
 
         Destroy(gameObject);
     }

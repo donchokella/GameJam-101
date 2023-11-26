@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class shooting : MonoBehaviour
@@ -11,10 +12,13 @@ public class shooting : MonoBehaviour
     public bool canFire;
     private float timer;
     public float timeBetweenFiring;
+
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
         mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     // Update is called once per frame
@@ -35,7 +39,12 @@ public class shooting : MonoBehaviour
         if(Input.GetMouseButton(0) && canFire){
             canFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
+            animator.SetBool("isFired", true);
+            Thread.Sleep(20);
 
+            animator.SetBool("isFired", false);
         }
+        
     }
+    
 }

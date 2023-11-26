@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using TreeEditor;
@@ -6,7 +7,6 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement Instance;
-
 
     private void Start()
     {
@@ -23,10 +23,7 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    void PlayerMoveAnim()
-    {
-
-    }
+    
 
 }
 

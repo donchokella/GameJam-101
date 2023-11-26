@@ -21,5 +21,14 @@ public class bulletmove : MonoBehaviour
         transform.rotation = Quaternion.Euler(0,0,rot+90);
     }
 
-    
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Wall"))
+        {
+            Destroy(gameObject);
+        }
+        
+    }
+
 }
