@@ -105,6 +105,7 @@ MonoBehaviour:
   enemyRunAwayRange: 2
   bulletDamage: 5
   filter: {fileID: 0}
+  cnvs: {fileID: 0}
   changeInterval: 1
   direction: {x: 0, y: 1}
   filterModifier: 0.005
@@ -165,7 +166,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0
   m_GravityScale: 0

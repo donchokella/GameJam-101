@@ -25,10 +25,13 @@ public class EnemyMovement : MonoBehaviour
 
     private Animator animator;
 
+    private Collider2D collider2D;
+
     private void Start()
     {
         cnvs = FindObjectOfType<Canvas>().GetComponent<UiScprit>();
         animator = GetComponent<Animator>();
+        collider2D = GetComponent<Collider2D>();
 
         player = PlayerMovement.Instance;
         if (filter == null)
@@ -36,7 +39,7 @@ public class EnemyMovement : MonoBehaviour
             filter = GameObject.FindWithTag("Filter");
         }
         filterAlphaController = filter.GetComponent<FilterAlphaController>();
-
+        
     }
     private void Update()
     {
@@ -94,7 +97,8 @@ public class EnemyMovement : MonoBehaviour
   
 
     private void GetKilled()
-    {
+    {   
+        collider2D.enabled = false;
         cnvs.IncreaseDeathNumber();
         animator.SetTrigger("isDying");
 
