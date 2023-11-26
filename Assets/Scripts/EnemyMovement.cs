@@ -15,6 +15,8 @@ public class EnemyMovement : MonoBehaviour
 
     private FilterAlphaController filterAlphaController;
 
+    [SerializeField] private UiScprit cnvs;
+
     private float timer = 0;
     [SerializeField] private float changeInterval = 5f;
 
@@ -25,6 +27,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
+        cnvs = FindObjectOfType<Canvas>().GetComponent<UiScprit>();
         animator = GetComponent<Animator>();
 
         player = PlayerMovement.Instance;
@@ -92,12 +95,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void GetKilled()
     {
+        cnvs.IncreaseDeathNumber();
         animator.SetTrigger("isDying");
 
         Invoke("EnemyDeath", 2f);
 
         KilledEnemy++;
-
+        
         filterAlphaController.IncreaseAlpha(filterModifier);
 
         

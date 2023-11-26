@@ -105,6 +105,7 @@ MonoBehaviour:
   enemyRunAwayRange: 3
   bulletDamage: 5
   filter: {fileID: 0}
+  cnvs: {fileID: 0}
   changeInterval: 1
   direction: {x: 0, y: 1}
   filterModifier: 0.005
