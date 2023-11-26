@@ -21,8 +21,12 @@ public class EnemyMovement : MonoBehaviour
     public Vector2 direction = Vector2.up;
     [SerializeField] private float filterModifier;
 
-    private void Awake()
+    private Animator animator;
+
+    private void Start()
     {
+        animator = GetComponent<Animator>();
+
         player = PlayerMovement.Instance;
         if (filter == null)
         {
@@ -42,8 +46,6 @@ public class EnemyMovement : MonoBehaviour
             timer = 0;
             direction = Random.insideUnitCircle;
         }
-
-        EnemyMoveAnimation(); // ???
     }
 
     private void RunAway()
@@ -76,41 +78,39 @@ public class EnemyMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Bullet"))
         {
-            Destroy(collision.gameObject);
+            
             GetDamage();
             if (enemyHealth <= 0)
             {
                 GetKilled();
             }
+
+            Destroy(collision.gameObject);
         }
     }
-   
+  
 
     private void GetKilled()
     {
-        EnemyDeathAnimation();  // ???
+        animator.SetTrigger("isDying");
+
+        Invoke("EnemyDeath", 2f);
 
         KilledEnemy++;
 
         filterAlphaController.IncreaseAlpha(filterModifier);
 
-        Destroy(gameObject);
+        
     }
-
-   
 
     private void GetDamage()
     {
         enemyHealth -= bulletDamage;
     }
 
-    void EnemyDeathAnimation ()
+    void EnemyDeath()
     {
-        // ???
+        Destroy(gameObject);
     }
 
-    void EnemyMoveAnimation()
-    {
-        // ???
-    }
 }

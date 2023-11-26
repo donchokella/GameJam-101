@@ -13,7 +13,7 @@ public class shooting : MonoBehaviour
     private float timer;
     public float timeBetweenFiring;
 
-    public Animator animator;
+    private Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -36,15 +36,11 @@ public class shooting : MonoBehaviour
                 timer = 0;
             }
         }
-        if(Input.GetMouseButton(0) && canFire){
+        if(Input.GetMouseButton(0) && canFire)
+        {
             canFire = false;
             Instantiate(bullet, bulletTransform.position, Quaternion.identity);
-            animator.SetBool("isFired", true);
-            Thread.Sleep(20);
-
-            animator.SetBool("isFired", false);
+            animator.SetTrigger("isFiring");
         }
-        
     }
-    
 }
