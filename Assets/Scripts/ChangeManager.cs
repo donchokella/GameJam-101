@@ -7,6 +7,13 @@ public class ChangeManager : MonoBehaviour
 {
     [SerializeField] private UiScprit xxxxxxx;
 
+    [SerializeField] private GameObject xxxxBtn;
+
+    private void Start()
+    {
+        xxxxBtn.SetActive(false);
+    }
+
     private void Update()
     {
         if(xxxxxxx.death_enemy >= 99)
@@ -15,8 +22,8 @@ public class ChangeManager : MonoBehaviour
         }
     }
 
-    private void GoToNextLevel()
+    public void GoToNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);    
+        xxxxBtn.SetActive(true);
     }
 }
